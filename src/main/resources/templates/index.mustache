@@ -12,13 +12,23 @@
     </script>
 </head>
 <body>
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                <i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;Question
-            </h1>
-        </div>
+<section class="section">
+    <div class="container">
+      <div class="content">
+        <nav class="panel">
+          <p class="panel-heading">
+            {{questions.question}}
+          </p>
+          {{#questions.items}}
+          <a class="panel-block">
+            <span class="panel-icon">
+              <i class="fa"></i>
+            </span>
+            {{content}}
+          </a>
+          {{/questions.items}}
+        </nav>
+      </div>
     </div>
 </section>
 
