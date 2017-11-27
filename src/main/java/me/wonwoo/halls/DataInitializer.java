@@ -25,28 +25,28 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        List<Item> items = Arrays.asList(new Item("test"), new Item("test1"), new Item("test2"), new Item("test3"));
-        Question question = new Question("this is a nothing", "test", items);
-        question.setQuestion("this is a nothing");
-        question.setAnswer("test");
+        List<Item> items = Arrays.asList(new Item("ConstructorInterceptor"), new Item("JmsGatewaySupport"),
+                new Item("CachingConnectionFactory"), new Item("ByteToMessageDecoder"));
 
-        List<Item> items1 = Arrays.asList(new Item("lee"), new Item("kim"), new Item("son"), new Item("park"));
+        Question question = new Question("this is a nothing", "ByteToMessageDecoder", items);
 
-        Question question1 = new Question("this is a nothing1", "park", items1);
+        List<Item> items1 = Arrays.asList(new Item("SimpleLog"), new Item("FlowControlHandler"), new Item("LocalVariableTableParameterNameDiscoverer"), new Item("SpringObjenesis"));
 
-        Question question2 = new Question("this is a nothing2", "park", items1);
+        Question question1 = new Question("this is a nothing1", "FlowControlHandler", items1);
 
-        Question question3 = new Question("this is a nothing3", "park", items1);
+        Question question2 = new Question("this is a nothing2", "FlowControlHandler", items1);
 
-        Question question4 = new Question("this is a nothing4", "park", items1);
+        Question question3 = new Question("this is a nothing3", "FlowControlHandler", items1);
 
-        Question question5 = new Question("this is a nothing5", "park", items1);
+        Question question4 = new Question("this is a nothing4", "FlowControlHandler", items1);
 
-        Question question6 = new Question("this is a nothing6", "park", items1);
+        Question question5 = new Question("this is a nothing5", "FlowControlHandler", items1);
 
-        Question question7 = new Question("this is a nothing7", "park", items1);
+        Question question6 = new Question("this is a nothing6", "FlowControlHandler", items1);
 
-        Question question8 = new Question("this is a nothing8", "park", items1);
+        Question question7 = new Question("this is a nothing7", "FlowControlHandler", items1);
+
+        Question question8 = new Question("this is a nothing8", "FlowControlHandler", items1);
 
         List<Question> questions = Arrays.asList(question, question1, question2, question3, question4, question5, question6, question7, question8);
         Category category = new Category("spring boot", questions);
