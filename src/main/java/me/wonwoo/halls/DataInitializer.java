@@ -34,21 +34,36 @@ public class DataInitializer implements CommandLineRunner {
 
         Question question1 = new Question("this is a nothing1", "FlowControlHandler", items1);
 
-        Question question2 = new Question("this is a nothing2", "FlowControlHandler", items1);
+        List<Item> items2 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
 
-        Question question3 = new Question("this is a nothing3", "FlowControlHandler", items1);
+        Question question2 = new Question("this is a nothing2", "JmxTemplate", items2);
 
-        Question question4 = new Question("this is a nothing4", "FlowControlHandler", items1);
+        List<Item> items3 = Arrays.asList(new Item("AsyncRequestInterceptor "), new Item("DefaultRequestMapping"), new Item("JdbcUtils"), new Item("MockServerHttpRequest"));
 
-        Question question5 = new Question("this is a nothing5", "FlowControlHandler", items1);
+        Question question3 = new Question("this is a nothing3", "DefaultRequestMapping", items3);
+//
+//        List<Item> items4 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
+//
+//        Question question4 = new Question("this is a nothing4", "FlowControlHandler", items4);
+//
+//        List<Item> items5 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
+//
+//        Question question5 = new Question("this is a nothing5", "FlowControlHandler", items5);
+//
+//        List<Item> items6 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
+//
+//        Question question6 = new Question("this is a nothing6", "FlowControlHandler", items6);
+//
+//        List<Item> items7 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
+//
+//        Question question7 = new Question("this is a nothing7", "FlowControlHandler", items7);
+//
+//        List<Item> items8 = Arrays.asList(new Item("RestTemplate "), new Item("JmsTemplate"), new Item("JmxTemplate"), new Item("JndiTemplate"));
+//
+//        Question question8 = new Question("this is a nothing8", "FlowControlHandler", items8);
 
-        Question question6 = new Question("this is a nothing6", "FlowControlHandler", items1);
-
-        Question question7 = new Question("this is a nothing7", "FlowControlHandler", items1);
-
-        Question question8 = new Question("this is a nothing8", "FlowControlHandler", items1);
-
-        List<Question> questions = Arrays.asList(question, question1, question2, question3, question4, question5, question6, question7, question8);
+//        List<Question> questions = Arrays.asList(question, question1, question2, question3, question4, question5, question6, question7, question8);
+        List<Question> questions = Arrays.asList(question, question1, question2, question3);
         Category category = new Category("spring boot", questions);
 
         categoryRepository.deleteAll()
@@ -56,6 +71,8 @@ public class DataInitializer implements CommandLineRunner {
                 .thenMany(itemRepository.deleteAll())
                 .thenMany(itemRepository.saveAll(items))
                 .thenMany(itemRepository.saveAll(items1))
+                .thenMany(itemRepository.saveAll(items2))
+                .thenMany(itemRepository.saveAll(items3))
                 .thenMany(questionRepository.saveAll(questions))
                 .thenMany(categoryRepository.save(category))
                 .subscribe(System.out::println);
